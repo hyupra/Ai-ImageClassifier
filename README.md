@@ -80,3 +80,6 @@ streamlit run app.py
 
 # Contoh jika menggunakan Flask
 python app.py
+
+python backend/server.py
+python backend/server.py

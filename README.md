@@ -1,6 +1,6 @@
 # Ai-ImageClassifier 🖼️✨
 
-Repositori ini berisi kode sumber untuk proyek klasifikasi gambar menggunakan kecerdasan buatan. Proyek ini mampu [jelaskan secara singkat fungsi utama proyek Anda, misal: 'membedakan antara gambar kucing dan anjing'].
+Repositori ini berisi kode sumber untuk proyek klasifikasi gambar menggunakan kecerdasan buatan. Proyek ini mampu ['Membantu mengklasifikasikan sebuah objek, terkait kucing untuk jenis2nya dan beberapa hewan2 yang modelnya telah dilatih dan terdapat pada dataset'].
 
 ---
 
@@ -8,10 +8,10 @@ Repositori ini berisi kode sumber untuk proyek klasifikasi gambar menggunakan ke
 
 Berikut adalah beberapa tangkapan layar dari dasbor dan hasil proyek:
 
-![Dashboard Utama]([Link ke Gambar Dashboard 1 Anda])
+![Dashboard Utama]([(https://github.com/hyupra/Ai-ImageClassifier/blob/main/page2.png)])
 *<p align="center">Tampilan dashboard utama untuk monitoring.</p>*
 
-![Hasil Klasifikasi]([Link ke Gambar Hasil 2 Anda])
+![Proses ketika mengirim gambar dan meminta klasifikasi oleh AI]([https://github.com/hyupra/Ai-ImageClassifier/blob/main/page1.png])
 *<p align="center">Contoh hasil klasifikasi gambar.</p>*
 
 ---
@@ -19,9 +19,9 @@ Berikut adalah beberapa tangkapan layar dari dasbor dan hasil proyek:
 ## 🚀 Fitur Utama
 
 -   Klasifikasi gambar secara real-time atau berdasarkan unggahan.
--   Arsitektur model [Sebutkan arsitektur yang Anda gunakan, misal: CNN, ResNet50, VGG16].
+-   Arsitektur model [CNN, ResNet50, VGG16].
 -   Antarmuka pengguna berbasis web yang interaktif.
--   Akurasi model mencapai [Sebutkan akurasi Anda, misal: 95%].
+-   Akurasi model mencapai Sebutkan akurasi Anda, misal: 95%.
 
 ---
 

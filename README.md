@@ -8,10 +8,10 @@ Repositori ini berisi kode sumber untuk proyek klasifikasi gambar menggunakan ke
 
 Berikut adalah beberapa tangkapan layar dari dasbor dan hasil proyek:
 
-![Dashboard Utama]([(https://github.com/hyupra/Ai-ImageClassifier/blob/main/page2.png)])
+![Dashboard Utama](https://github.com/hyupra/Ai-ImageClassifier/blob/main/page2.png)
 *<p align="center">Tampilan dashboard utama untuk monitoring.</p>*
 
-![Proses ketika mengirim gambar dan meminta klasifikasi oleh AI]([https://github.com/hyupra/Ai-ImageClassifier/blob/main/page1.png])
+![Proses ketika mengirim gambar dan meminta klasifikasi oleh AI](https://github.com/hyupra/Ai-ImageClassifier/blob/main/page1.png)
 *<p align="center">Contoh hasil klasifikasi gambar.</p>*
 
 ---

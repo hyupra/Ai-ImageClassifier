@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Pengenal Gambar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white max-w-2xl w-full p-8 rounded-xl shadow-lg">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-blue-600">
+          AI Pengenal Gambar
+        </h1>
+        <p class="text-slate-500 mt-2">
+          Unggah sebuah gambar dan biarkan AI menebak isinya.
+        </p>
+      </div>
+
+      <div
+        class="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center"
+      >
+        <input
+          type="file"
+          id="fileInput"
+          class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+
+      <div class="mt-6">
+        <button
+          id="predictButton"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:bg-slate-400"
+        >
+          Mulai Prediksi
+        </button>
+      </div>
+
+      <div id="status" class="mt-6 text-center font-semibold"></div>
+      <div id="results" class="mt-4 space-y-2"></div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const predictButton = document.getElementById("predictButton");
+      const statusDiv = document.getElementById("status");
+      const resultsDiv = document.getElementById("results");
+
+      predictButton.addEventListener("click", async () => {
+        const file = fileInput.files[0];
+        if (!file) {
+          statusDiv.textContent =
+            "⚠️ Silakan pilih file gambar terlebih dahulu.";
+          statusDiv.className = "mt-6 text-center font-semibold text-red-600";
+          return;
+        }
+
+        statusDiv.textContent = "⏳ Menganalisis gambar...";
+        statusDiv.className = "mt-6 text-center font-semibold text-slate-700";
+        resultsDiv.innerHTML = "";
+        predictButton.disabled = true;
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+          // Panggil API di backend Anda
+          const response = await fetch("http://127.0.0.1:5000/predict", {
+            method: "POST",
+            body: formData,
+          });
+
+          const data = await response.json();
+          statusDiv.textContent = ""; // Kosongkan status jika berhasil
+
+          if (data.error) {
+            throw new Error(data.error);
+          }
+
+          // Tampilkan hasil
+          data.forEach((prediction) => {
+            const confidence = (prediction.score * 100).toFixed(2);
+            const resultElement = document.createElement("div");
+            resultElement.className =
+              "bg-slate-50 p-4 rounded-lg flex justify-between items-center";
+            resultElement.innerHTML = `
+                        <span class="text-slate-800 font-medium capitalize">${prediction.label}</span>
+                        <span class="font-bold text-blue-600">${confidence}%</span>
+                    `;
+            resultsDiv.appendChild(resultElement);
+          });
+        } catch (error) {
+          statusDiv.textContent = `❌ Error: ${error.message}. Pastikan server backend berjalan.`;
+          statusDiv.className = "mt-6 text-center font-semibold text-red-600";
+        } finally {
+          predictButton.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
